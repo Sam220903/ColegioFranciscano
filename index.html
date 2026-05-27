@@ -1,47 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colegio Franciscano</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colegio Franciscano</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-    <nav id="main-nav">
-        <a href="">Inscripciones</a>
-        <a href="">Avisos</a>
+  <nav id="main-nav">
+    <a href="">Inscripciones</a>
+    <a href="">Avisos</a>
+    <img id="cf-logo" src="images/logo.PNG" alt="Logo Colegio Franciscano">
+    <a href="">Contacto</a>
+    <a href="">Acceso</a>
+  </nav>
 
-        <img id="cf-logo" src="images/logo.PNG" alt="Logo Colegio Franciscano">
+  <div id="hero">
+    <img src="images/bg.JPG" alt="Colegio Franciscano">
+  </div>
 
-        <a href="">Contacto</a>
-        <a href="">Acceso</a>
+  <div id="announcements">
 
-    </nav>
-
-    <div id="hero">
-        <img src="images/bg.JPG" alt="Colegio Franciscano">
+    <div class="title">
+      <i class="fa-solid fa-circle-info"></i>
+      <h2>Avisos</h2>
     </div>
 
-    <div id="announcements">
+    <div class="announcements-body">
+
+      <!-- Carrusel -->
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Agrega aquí tus slides; por ahora placeholders -->
+          <div class="carousel-slide placeholder">
+            <img src="images/test1.jpg" alt="">
+          </div>
+          <div class="carousel-slide placeholder" style="background: linear-gradient(135deg, #2e5fa3 0%, #4a7fcb 100%);">
+            <img src="images/test2.jpg" alt="">
+          </div>
+          <div class="carousel-slide placeholder" style="background: linear-gradient(135deg, #0a2240 0%, #1a3a6b 100%);">
+            <img src="images/test3.jpg" alt="">
+          </div>
+        </div>
+
+        <button class="carousel-btn prev" id="carousel-prev">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-btn next" id="carousel-next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </div>
+
+      <!-- Tarjetas de avisos -->
+      <div class="announcement-cards" id="announcement-cards">
+        <!-- Se generan con JS; también puedes escribirlas a mano -->
+      </div>
 
     </div>
 
-    <div id="about">
-
+    <div class="announcements-footer">
+      <a href="" class="btn-all-announcements">
+        Consulta todos los avisos recientes
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
     </div>
 
-    <script>
-        const nav = document.getElementById('main-nav');
+  </div>
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 10) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-    </script>
+  <div id="about"></div>
+
+  <script>
+    /* ── Nav scroll ── */
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    /* ── Datos de avisos (reemplaza con tus datos reales) ── */
+    const avisos = [
+      {
+        fecha: 'Martes 3 de Febrero del 2026',
+        texto: 'Preinscripciones <strong>ABIERTAS</strong> para el Ciclo Escolar 2026 - 27'
+      },
+      {
+        fecha: 'Miércoles 13 de Mayo del 2026',
+        texto: 'Suspensión de clases por consejo técnico escolar el próximo <strong>Viernes 15 de Mayo</strong>'
+      },
+      {
+        fecha: 'Lunes 25 de Mayo del 2026',
+        texto: ' Simulacro Nacional el pŕoximo <strong> Viernes 29 de Mayo </strong>'
+      }
+    ];
+
+    /* ── Renderizar tarjetas ── */
+    const cardsContainer = document.getElementById('announcement-cards');
+    avisos.forEach(aviso => {
+      cardsContainer.innerHTML += `
+        <div class="announcement-card">
+          <div class="card-date">${aviso.fecha}</div>
+          <div class="card-text">${aviso.texto}</div>
+        </div>
+      `;
+    });
+
+    /* ── Carrusel ── */
+    const track  = document.getElementById('carousel-track');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const dotsEl = document.getElementById('carousel-dots');
+    let current  = 0;
+
+    // Crear dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsEl.appendChild(dot);
+    });
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dotsEl.children[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dotsEl.children[current].classList.add('active');
+    }
+
+    document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
+
+    // Auto-avance cada 4 s
+    setInterval(() => goTo(current + 1), 4000);
+  </script>
 
 </body>
 </html>
