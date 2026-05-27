@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Franciscano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="main-nav">
+        <a href="">Inscripciones</a>
+        <a href="">Avisos</a>
+
+        <img id="cf-logo" src="images/logo.PNG" alt="Logo Colegio Franciscano">
+
+        <a href="">Contacto</a>
+        <a href="">Acceso</a>
+
+    </nav>
+
+    <div id="hero">
+        <img src="images/bg.JPG" alt="Colegio Franciscano">
+    </div>
+
+    <div id="announcements">
+
+    </div>
+
+    <div id="about">
+
+    </div>
+
+    <script>
+        const nav = document.getElementById('main-nav');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
