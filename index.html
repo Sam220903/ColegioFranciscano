@@ -74,70 +74,44 @@
 
   </div>
 
-  <div id="about"></div>
+  <footer>
 
-  <script>
-    /* ── Nav scroll ── */
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
-    });
+    <div class="footer-container">
+        <div class="footer-panel" id="school-name">
+          <div id="logo-container">
+              <img src="assets/images/logo.png" alt="Logo Colegio Franciscano">
+          </div>
+          <div id="name-container">
+              <h1>Colegio Franciscano AC</h1>
+              <h4>de Huamantla, Tlax.</h4>
+          </div>
+      </div>
 
-    /* ── Datos de avisos (reemplaza con tus datos reales) ── */
-    const avisos = [
-      {
-        fecha: 'Martes 3 de Febrero del 2026',
-        texto: 'Preinscripciones <strong>ABIERTAS</strong> para el Ciclo Escolar 2026 - 27'
-      },
-      {
-        fecha: 'Miércoles 13 de Mayo del 2026',
-        texto: 'Suspensión de clases por consejo técnico escolar el próximo <strong>Viernes 15 de Mayo</strong>'
-      },
-      {
-        fecha: 'Lunes 25 de Mayo del 2026',
-        texto: ' Simulacro Nacional el pŕoximo <strong> Viernes 29 de Mayo </strong>'
-      }
-    ];
+      <div class="footer-panel" id="school-info">
+          <div class="data-label">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Allende Sur #103, Huamantla, Tlaxcala</span>
+          </div>
+          <div class="data-label">
+              <i class="fa-solid fa-phone"></i>
+              <span>247 472 0756</span>
+          </div>
+          <div class="data-label">
+              <i class="fa-solid fa-envelope"></i>
+              <span>colegiofranciscano.a.c@gmail.com</span>
+          </div>
+          <div class="data-label" id="facebook-link">
+              <i class="fa-brands fa-facebook"></i>
+              <a href="https://www.facebook.com/ColegioFranciscanoAC/" target="_blank">Colegio Franciscano AC de Huamantla, Tlax.</span>
+          </div>
+      </div>
+    </div>
 
-    /* ── Renderizar tarjetas ── */
-    const cardsContainer = document.getElementById('announcement-cards');
-    avisos.forEach(aviso => {
-      cardsContainer.innerHTML += `
-        <div class="announcement-card">
-          <div class="card-date">${aviso.fecha}</div>
-          <div class="card-text">${aviso.texto}</div>
-        </div>
-      `;
-    });
+  </footer>
 
-    /* ── Carrusel ── */
-    const track  = document.getElementById('carousel-track');
-    const slides = track.querySelectorAll('.carousel-slide');
-    const dotsEl = document.getElementById('carousel-dots');
-    let current  = 0;
-
-    // Crear dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goTo(i));
-      dotsEl.appendChild(dot);
-    });
-
-    function goTo(index) {
-      slides[current].classList.remove('active');
-      dotsEl.children[current].classList.remove('active');
-      current = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dotsEl.children[current].classList.add('active');
-    }
-
-    document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
-
-    // Auto-avance cada 4 s
-    setInterval(() => goTo(current + 1), 4000);
-  </script>
 
 </body>
+
+<script src="assets/js/main.js"></script>
+
 </html>
