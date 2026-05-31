@@ -1,60 +1,27 @@
-    /* ── Nav scroll ── */
-    const nav = document.getElementById('main-nav');
-    window.addEventListener('scroll', () => {
+/* ── Nav scroll ── */
+async function initNav() {
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 10);
-    });
+  });
+}
 
-    /* ── Datos de avisos (reemplaza con tus datos reales) ── */
-    const avisos = [
-      {
-        fecha: 'Martes 3 de Febrero del 2026',
-        texto: 'Preinscripciones <strong>ABIERTAS</strong> para el Ciclo Escolar 2026 - 27'
-      },
-      {
-        fecha: 'Miércoles 13 de Mayo del 2026',
-        texto: 'Suspensión de clases por consejo técnico escolar el próximo <strong>Viernes 15 de Mayo</strong>'
-      },
-      {
-        fecha: 'Lunes 25 de Mayo del 2026',
-        texto: ' Simulacro Nacional el pŕoximo <strong> Viernes 29 de Mayo </strong>'
-      }
-    ];
 
-    /* ── Renderizar tarjetas ── */
-    const cardsContainer = document.getElementById('announcement-cards');
-    avisos.forEach(aviso => {
-      cardsContainer.innerHTML += `
-        <div class="announcement-card">
-          <div class="card-date">${aviso.fecha}</div>
-          <div class="card-text">${aviso.texto}</div>
-        </div>
-      `;
-    });
+async function loadPartial(selector, url) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+  const res = await fetch(url);
+  const html = await res.text();
+  el.outerHTML = html;
+}
 
-    /* ── Carrusel ── */
-    const track  = document.getElementById('carousel-track');
-    const slides = track.querySelectorAll('.carousel-slide');
-    const dotsEl = document.getElementById('carousel-dots');
-    let current  = 0;
+async function loadComponents() {
+  await Promise.all([
+    loadPartial('#nav-placeholder', '/assets/partials/nav.html'),
+    loadPartial('#footer-placeholder', '/assets/partials/footer.html'),
+  ]);
+  // Reinicia scripts que dependen del nav/footer (ej: scroll, carrusel)
+  initNav();
+}
 
-    // Crear dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goTo(i));
-      dotsEl.appendChild(dot);
-    });
-
-    function goTo(index) {
-      slides[current].classList.remove('active');
-      dotsEl.children[current].classList.remove('active');
-      current = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dotsEl.children[current].classList.add('active');
-    }
-
-    document.getElementById('carousel-prev').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('carousel-next').addEventListener('click', () => goTo(current + 1));
-
-    // Auto-avance cada 4 s
-    setInterval(() => goTo(current + 1), 4000);
+loadComponents();
