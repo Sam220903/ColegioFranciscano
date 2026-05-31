@@ -41,6 +41,7 @@ html, body {
 
 #motto span b{
     font-size: 1.75rem;
+    margin: 0 5px
 }
 
 #about .title {
@@ -72,6 +73,87 @@ html, body {
 #about .content .photo img{
     width: 500px;
     border-radius: 50px;
+}
+
+#mission {
+    padding: 4rem 3rem;
+    background-color: #0D2A5D;
+    color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#mission .title {
+    display: flex;
+    justify-content: left;
+}
+
+#mission .title h1, #vision .title h1{
+    font-family: "Cal Sans", sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+}
+
+#mission .text, #vision .text{
+    font-size: 1.5rem;
+}
+
+
+#mission .text {
+    margin-right: 10rem;
+}
+
+#mission svg {
+  position: absolute;
+  right: -100px;        /* ← se sale por la derecha */
+  bottom: -70px;       /* ← se sale por abajo */
+  top: unset;          /* ← cancela el centrado vertical anterior */
+  transform: none;
+  width: 380px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+#mission svg path, #vision svg path {
+    fill: #D4AF37;
+}
+
+
+
+#vision {
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #0D2A5D;
+    position: relative;
+    overflow: hidden;
+}
+
+#vision .title {
+    display: flex;
+    justify-content: right;
+    margin-right: 1rem;
+}
+
+#vision .text {
+    text-align: right;
+    margin-left: 10rem;
+}
+
+
+#vision svg {
+  position: absolute;
+  left: -100px;        /* ← se sale por la derecha */
+  bottom: -70px;       /* ← se sale por abajo */
+  top: unset;          /* ← cancela el centrado vertical anterior */
+  transform: none;
+  width: 380px;
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 
