@@ -20,13 +20,30 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 3rem;
   height: 150px;
   background: #0D2A5D;
   transition: 0.4s ease-in-out;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;  /* izquierda | logo | derecha */
+  align-items: center;
+  padding: 0 3rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: space-evenly;   /* ← se pegan al logo por la derecha */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: space-evenly; /* ← se pegan al logo por la izquierda */
 }
 
 nav::before {
@@ -56,6 +73,7 @@ nav.scrolled #cf-logo {
   height: 60px;
   transition: 0.2s ease-in-out;
 }
+
 
 nav a, nav span {
   color: #ffffff;
@@ -172,6 +190,7 @@ nav.scrolled .nav-dropdown-menu {
   object-fit: contain;
   filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
   transition: transform 0.2s ease-in-out;
+  margin: 0 3rem;
 }
 
 /* ─── FOOTER ───────────────────────────────────────────── */
