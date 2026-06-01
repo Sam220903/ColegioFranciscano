@@ -31,6 +31,7 @@ html, body {
     background-color: #0D2A5D;
     align-items: center;
     border-radius: 0 50px 50px 0;
+    font-family: "Cal Sans", sans-serif;
 }
 
 #motto span{
@@ -40,7 +41,7 @@ html, body {
 }
 
 #motto span b{
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin: 0 5px
 }
 
