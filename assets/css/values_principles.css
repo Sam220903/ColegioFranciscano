@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');/* ─── Reset & Base ─────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Source Sans 3", sans-serif;
+  scroll-behavior: smooth;
+}
+
+#values {
+    position: relative;
+    overflow: hidden;
+    margin-top: 200px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+
+#values .title{
+    display: flex;
+    justify-content: center;
+    color: #0D2A5D;
+    font-family: "Cal Sans", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+}
+
+#values-container {
+    /* Acomodar los elementos en una matriz 3x3 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 0 3rem;
+}
+
+.values-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #F1EDEC;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #0d2a5d;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: "Cal Sans", sans-serif;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.values-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #A09943;
+  transition: width 0.25s ease-out;
+}
+
+.values-card:hover {
+  background-color: #0D2A5D;
+  color: #fefefe;
+}
+
+.values-card:hover::before {
+  width: 100%;
+}
+
+
+#academic-principles {
+    background-color: #0D2A5D;
+    color: #fefefe;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 4rem;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+#academic-principles .title {
+    display: flex;
+    justify-content: left;
+    font-family: "Cal Sans", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+    width: 40%;
+}
+
+#academic-principles ol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  counter-reset: items;
+  padding: 0;
+}
+
+#academic-principles ol li {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  counter-increment: items;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+#academic-principles ol li::before {
+  content: counter(items) ".";
+  color: #A09943;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Cal Sans", sans-serif;
+  min-width: 2rem;        /* ← evita que el texto baile con números de distinto ancho */
+}   
+
+#academic-principles svg {
+  position: absolute;
+  left: -150px;        /* ← se sale por la derecha */
+  top: unset;          /* ← cancela el centrado vertical anterior */
+  transform: none;
+  width: 600px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+#academic-principles svg path {
+    fill: #A09943;
+}
+
+
+#quote {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 4rem;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#quote i{
+    color: #A09943;
+    font-size: 4rem;
+}
+
+#quote span{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#quote #author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#quote #author i{
+    font-size: 2rem;
+}
+
+#quote #author span{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #0D2A5D;
+}
