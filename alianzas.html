@@ -10,43 +10,51 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
   <div id="nav-placeholder"></div>
 
   <div id="header">
     <div class="title">
-        <h1>Alianzas estratégicas</h1>
+      <h1>Alianzas estratégicas</h1>
     </div>
     <div class="content">
-        <span>
-            Fortalecemos la formación académica de nuestros alumnos mediante la colaboración estratégica con diferentes instituciones 
-        </span>
+      <span>
+        Fortalecemos la formación académica de nuestros alumnos mediante la colaboración estratégica con diferentes instituciones
+      </span>
     </div>
   </div>
 
   <div id="alliances-list">
     <div class="title">
-        <h3>Nuestros aliados</h3>
+      <h3>Nuestros aliados</h3>
     </div>
     <div class="content">
-        <div class="allies-row">
-            <img src="assets/images/allies1.png" alt="">
-            <img src="assets/images/allies2.png" alt="">
-            <img src="assets/images/allies3-1.png" alt="">
-        </div>
-        <div class="allies-row">
-            <img src="assets/images/allies4-1.png" alt="">
-            <img src="assets/images/allies5.jpg" alt="">
-        </div>
+      <div class="allies-row">
+        <img src="assets/images/allies1.png" alt="" data-ally="0">
+        <img src="assets/images/allies2.png" alt="" data-ally="1">
+        <img src="assets/images/allies3-1.png" alt="" data-ally="2">
+      </div>
+      <div class="allies-row">
+        <img src="assets/images/allies4-1.png" alt="" data-ally="3">
+        <img src="assets/images/allies5.jpg" alt="" data-ally="4">
+      </div>
+    </div>
+
+    <div id="ally-panel">
+      <button id="ally-panel-close"><i class="fa-solid fa-xmark"></i></button>
+      <img id="ally-panel-logo" src="" alt="">
+      <h2 id="ally-panel-name"></h2>
+      <p id="ally-panel-desc"></p>
     </div>
   </div>
 
-  
-  
+  <div id="community-impact">
+    <div class="title">
+      <h3>Impacto en la comunidad educativa</h3>
+    </div>
+  </div>
+
   <div id="footer-placeholder"></div>
-
 </body>
-
 <script src="assets/js/main.js"></script>
-
+<script src="assets/js/alliances.js"></script>
 </html>

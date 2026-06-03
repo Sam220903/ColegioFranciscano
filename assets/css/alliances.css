@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');/* ─── Reset & Base ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,49 +13,53 @@ html, body {
 }
 
 #header {
-    position: relative;
-    overflow: hidden;
-    margin-top: 200px;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 200px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 
-#header .title{
-    display: flex;
-    justify-content: center;
-    color: #0D2A5D;
-    font-family: "Cal Sans", sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    margin-bottom: 3rem;
+#header .title {
+  display: flex;
+  justify-content: center;
+  color: #0D2A5D;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
 }
 
 #header .content {
-    display: flex;
-    justify-content: center;
-    color: #0D2A5D;
-    font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  color: #0D2A5D;
+  font-size: 1.25rem;
 }
 
 #alliances-list {
-    background-color: #750014;
-    color: #fefefe;
-    position: relative;
-    overflow: hidden;
-    padding: 3rem 4rem;
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background-color: #750014;
+  color: #fefefe;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #alliances-list .title {
-    display: flex;
-    justify-content: center;
-    font-family: "Cal Sans", sans-serif;
-    font-size: 1.75rem;
-    letter-spacing: 2px;
-    margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 2.5rem;
+  transition: padding-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#alliances-list.panel-open .title {
+  padding-right: 380px;
 }
 
 #alliances-list .content {
@@ -63,6 +67,11 @@ html, body {
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+  transition: padding-right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#alliances-list.panel-open .content {
+  padding-right: 380px;
 }
 
 .allies-row {
@@ -79,5 +88,98 @@ html, body {
   background-color: #F1EDEC;
   border-radius: 25px;
   padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+#alliances-list .content img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── PANEL LATERAL ─────────────────────────────────── */
+#ally-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background-color: #0D2A5D;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  border-left: 4px solid rgba(241, 237, 236, 0.15);
+}
+
+#ally-panel.open {
+  transform: translateX(0);
+}
+
+#ally-panel-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #fefefe;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+#ally-panel-close:hover {
+  opacity: 1;
+}
+
+#ally-panel-logo {
+  width: 160px;
+  height: 100px;
+  object-fit: contain;
+  background-color: #F1EDEC;
+  border-radius: 15px;
+  padding: 1rem;
+  cursor: default;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+#ally-panel-name {
+  font-family: "Cal Sans", sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-align: center;
+  border-bottom: 2px solid #A09943;
+  padding-bottom: 0.75rem;
+  width: 100%;
+}
+
+#ally-panel-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: center;
+  opacity: 0.85;
+}
+
+#community-impact {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 4rem;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#community-impact .title {
+  display: flex;
+  justify-content: center;
+  color: #0D2A5D;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 3rem;
+}
