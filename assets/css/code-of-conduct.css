@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');/* ─── Reset & Base ─────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Source Sans 3", sans-serif;
+  scroll-behavior: smooth;
+}
+
+#header {
+    position: relative;
+    overflow: hidden;
+    margin-top: 200px;
+}
+
+#header .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0D2A5D;
+    font-family: "Cal Sans", sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 3rem;
+}
+
+
+#code-of-conduct {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding: 0 4rem;
+    margin-bottom: 100px;
+}
+
+#code-of-conduct .content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#code-of-conduct .content iframe {
+    width: 75%;
+    height: 1000px;
+    border: none;
+}

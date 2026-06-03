@@ -33,30 +33,35 @@ html, body {
 #values-container {
     /* Acomodar los elementos en una matriz 3x3 */
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin: 0 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin: 0 7rem;
 }
 
 .values-card {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 2rem;
   background-color: #F1EDEC;
+  border-radius: 0 25px 0 25px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   color: #0d2a5d;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 500;
   font-family: "Cal Sans", sans-serif;
   letter-spacing: 1px;
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  min-height: 140px;
+  transition: background-color 0.35s ease, color 0.35s ease, box-shadow 0.35s ease;
 }
 
+/* línea roja superior */
 .values-card::before {
   content: '';
   position: absolute;
@@ -64,17 +69,47 @@ html, body {
   left: 0;
   width: 0%;
   height: 3px;
-  background-color: #A09943;
+  background-color: #750014;
   transition: width 0.25s ease-out;
 }
 
 .values-card:hover {
   background-color: #0D2A5D;
   color: #fefefe;
+  box-shadow: 0 8px 24px rgba(13, 42, 93, 0.35);
 }
 
 .values-card:hover::before {
   width: 100%;
+}
+
+.values-card:hover::after {
+  transform: scale(1);
+}
+
+.values-icon {
+  font-size: 3rem;
+  color: #A09943;
+  opacity: 0;
+  transform: translateY(20px) scale(0.7);
+  transition: opacity 0.3s ease 0.05s, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: absolute;
+  top: 30%;
+}
+
+.values-card:hover .values-icon {
+  opacity: 1;
+  transform: translateY(-20px) scale(1);
+}
+
+.values-label {
+  font-size: 2.2rem;                          /* ← más grande sin hover */
+  transition: font-size 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.values-card:hover .values-label {
+  font-size: 1.6rem;                          /* ← se achica en hover */
+  transform: translateY(28px);               /* ← baja para dar espacio al ícono */
 }
 
 
