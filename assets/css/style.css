@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');/* ─── Reset & Base ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
 
 /* ─── NAV ───────────────────────────────────────────── */
 nav {
@@ -14,13 +14,12 @@ nav::before {
     rgba(0, 0, 0, 0.25) 85%,
     transparent 100%
   ) !important;
+  transition: opacity 0.4s ease;
 }
-
 
 nav.scrolled {
   background: #0D2A5D !important;
 }
-
 
 /* ─── NAV DROPDOWN ───────────────────────────────────── */
 .nav-dropdown {
@@ -47,7 +46,7 @@ nav.scrolled {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 15px);    /* ← espacio visual de vuelta */
+  top: calc(100% + 15px);
   left: 50%;
   background: #0D2A5D;
   border-radius: 0 0 10px 10px;
@@ -64,11 +63,10 @@ nav.scrolled {
   z-index: 200;
 }
 
-/* Puente invisible que cubre el hueco */
 .nav-dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -18px;        /* cubre el gap de 15px + margen de seguridad */
+  top: -18px;
   left: 0;
   right: 0;
   height: 18px;
@@ -97,9 +95,8 @@ nav.scrolled {
   background: rgba(255, 255, 255, 0.07);
 }
 
-/* Ajuste cuando el nav está scrolled (más compacto) */
 nav.scrolled .nav-dropdown-menu {
-  padding-top: 20px;                /* ← mismo ajuste para scrolled */
+  padding-top: 20px;
 }
 
 #cf-logo {
@@ -160,13 +157,22 @@ nav.scrolled .nav-dropdown-menu {
   align-items: start;
 }
 
+/* ── Wrapper que agrupa carrusel + dots ── */
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;          /* espacio entre carrusel y dots */
+}
+
 /* ── Carrusel ── */
 .carousel {
   position: relative;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: hidden;   /* vuelve a hidden para que las imágenes no se salgan */
   background: #eee;
   aspect-ratio: 4/3;
+  width: 100%;
 }
 
 .carousel-track {
@@ -185,18 +191,6 @@ nav.scrolled .nav-dropdown-menu {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-/* Placeholder cuando no hay imagen */
-.carousel-slide.placeholder {
-  background: linear-gradient(135deg, #1a3a6b 0%, #2e5fa3 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 1rem;
 }
 
 /* Flechas */
@@ -223,27 +217,26 @@ nav.scrolled .nav-dropdown-menu {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
-/* Dots */
+/* Dots — ahora fuera del carrusel, dentro del wrapper */
 .carousel-dots {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
-  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .carousel-dots span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
+  height: 10px;
+  width: 25px;
+  border-radius: 999px;
+  background: #c0c8d8;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: width 0.3s ease, background 0.3s ease;
 }
 
 .carousel-dots span.active {
-  background: #ffffff;
+  width: 25px;
+  background: #0D2A5D;
 }
 
 /* ── Tarjetas de avisos ── */
@@ -256,15 +249,13 @@ nav.scrolled .nav-dropdown-menu {
 .announcement-card {
   background-color: #0D2A5D;
   border-radius: 10px;
-  /* Por defecto: un borde azul un poco más claro que el fondo, o semi-transparente */
-  border: 2px solid #1a3a75; 
+  border: 2px solid #1a3a75;
   padding: 0.9rem 1.1rem;
   transition: box-shadow 0.2s, border-color 0.2s;
   cursor: pointer;
   height: 8rem;
 }
 
-/* El rojo entra en acción de forma armónica con la transición */
 .announcement-card:hover {
   border-color: #750014;
   box-shadow: 0 0 12px rgba(117, 0, 20, 0.5);
@@ -327,4 +318,3 @@ nav.scrolled .nav-dropdown-menu {
   padding: 5rem 4rem;
   background: #ffffff;
 }
-

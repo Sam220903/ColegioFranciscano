@@ -17,8 +17,8 @@ async function loadPartial(selector, url) {
 
 async function loadComponents() {
   await Promise.all([
-    loadPartial('#nav-placeholder', '/assets/partials/nav.html'),
-    loadPartial('#footer-placeholder', '/assets/partials/footer.html'),
+    loadPartial('#nav-placeholder', '../../assets/partials/nav.html'),
+    loadPartial('#footer-placeholder', '../../assets/partials/footer.html'),
   ]);
   // Reinicia scripts que dependen del nav/footer (ej: scroll, carrusel)
   initNav();

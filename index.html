@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
   <div id="nav-placeholder"></div>
 
   <div id="hero">
@@ -18,7 +17,6 @@
   </div>
 
   <div id="announcements">
-
     <div class="title">
       <i class="fa-solid fa-bullhorn"></i>
       <h2>Avisos</h2>
@@ -26,35 +24,32 @@
 
     <div class="announcements-body">
 
-      <!-- Carrusel -->
-      <div class="carousel" id="carousel">
-        <div class="carousel-track" id="carousel-track">
-          <!-- Agrega aquí tus slides; por ahora placeholders -->
-          <div class="carousel-slide placeholder">
-            <img src="assets/images/test1.jpg" alt="">
+      <!-- Carrusel + dots envueltos juntos -->
+      <div class="carousel-wrapper">
+        <div class="carousel" id="carousel">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide">
+              <img src="assets/images/test1.jpg" alt="">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/images/test2.jpg" alt="">
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/images/test3.jpg" alt="">
+            </div>
           </div>
-          <div class="carousel-slide placeholder" style="background: linear-gradient(135deg, #2e5fa3 0%, #4a7fcb 100%);">
-            <img src="assets/images/test2.jpg" alt="">
-          </div>
-          <div class="carousel-slide placeholder" style="background: linear-gradient(135deg, #0a2240 0%, #1a3a6b 100%);">
-            <img src="assets/images/test3.jpg" alt="">
-          </div>
+          <button class="carousel-btn prev" id="carousel-prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next" id="carousel-next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
-
-        <button class="carousel-btn prev" id="carousel-prev">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="carousel-btn next" id="carousel-next">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
-
         <div class="carousel-dots" id="carousel-dots"></div>
       </div>
 
       <!-- Tarjetas de avisos -->
-      <div class="announcement-cards" id="announcement-cards">
-        <!-- Se generan con JS; también puedes escribirlas a mano -->
-      </div>
+      <div class="announcement-cards" id="announcement-cards"></div>
 
     </div>
 
@@ -64,15 +59,10 @@
         <i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
-
   </div>
 
   <div id="footer-placeholder"></div>
-
-
 </body>
-
 <script src="assets/js/main.js"></script>
 <script src="assets/js/index.js"></script>
-
 </html>
