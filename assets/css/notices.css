@@ -50,7 +50,7 @@ html, body {
 }
 
 #banner-info button {
-    border: none;
+    border: 3px solid transparent;
     background-color: #A09943;
     color: #F1EDEC;
     padding: 20px;
@@ -62,10 +62,27 @@ html, body {
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    transition: 0.3s all;
 }
 
 #banner-info button i{
     font-size: 1.5rem;
+}
+
+#banner-info button:hover{
+    border-color: #A09943;
+    color: #A09943;
+    background-color: #0D2A5D;
+    transition: 0.3s all;
+}
+
+
+
+/* ─── ANNOUNCEMENTS SECTION ───────────────────────────── */
+
+#announcements {
+  padding: 3rem 4rem;
+  background: #fefefe;
 }
 
 
@@ -84,4 +101,149 @@ html, body {
 
 #announcements .title i{
     font-size: 2.5rem;
+}
+
+#announcements .title h2 {
+  font-family: "Cal Sans", sans-serif;
+}
+
+/* ── Wrapper del carrusel ── */
+.cards-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Viewport: ventana que recorta las tarjetas */
+.cards-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Track: fila de todas las tarjetas */
+.cards-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s ease;
+}
+
+/* ── Tarjeta individual ── */
+.announcement-card {
+  /* Siempre muestra exactamente 3 cartas */
+  flex: 0 0 calc((100% - 48px) / 3); /* (100% - 2 gaps) / 3 */
+  background: #0D2A5D;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.announcement-card:hover {
+  border-color: #750014;
+  box-shadow: 0 6px 20px rgba(117, 0, 20, 0.35);
+}
+
+/* Imagen superior */
+.card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.announcement-card:hover .card-img img {
+  transform: scale(1.04);
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  padding: 1rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-date {
+  font-size: 0.85rem;
+  color: #A09943;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  color: #f0ede8;
+  line-height: 1.5;
+}
+
+.card-link {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  color: #c8d8f5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  align-self: center;
+  transition: color 0.2s;
+}
+
+.card-link:hover {
+  color: #ffffff;
+}
+
+/* ── Botones de flecha ── */
+.cards-btn {
+  flex-shrink: 0;
+  background: #0D2A5D;
+  border: 2px solid #1a3a75;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fefefe;
+  font-size: 0.9rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.cards-btn:hover {
+  background: #1a3a75;
+  border-color: #2e5fa3;
+}
+
+.cards-btn i {
+    font-size: 25px;
+}
+
+/* ── Dots ── */
+.cards-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1.4rem;
+}
+
+.cards-dots span {
+  height: 10px;
+  width: 25px;
+  border-radius: 999px;
+  background: #c0c8d8;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.cards-dots span.active {
+  width: 25px;
+  background: #0D2A5D;
 }

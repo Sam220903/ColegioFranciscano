@@ -248,12 +248,12 @@ nav.scrolled .nav-dropdown-menu {
 
 .announcement-card {
   background-color: #0D2A5D;
-  border-radius: 10px;
+  border-radius: 25px;
   border: 2px solid #1a3a75;
   padding: 0.9rem 1.1rem;
   transition: box-shadow 0.2s, border-color 0.2s;
   cursor: pointer;
-  height: 8rem;
+  height: 9rem;
 }
 
 .announcement-card:hover {
@@ -280,6 +280,27 @@ nav.scrolled .nav-dropdown-menu {
   font-weight: 700;
 }
 
+.announcement-card .card-link-container {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: right;
+}
+
+.announcement-card .card-link {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  color: #c8d8f5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  align-self: center;
+  transition: color 0.2s;
+}
+
+.announcement-card .card-link:hover {
+  color: #ffffff;
+}
+
 /* ── Botón inferior ── */
 .announcements-footer {
   margin-top: 1.8rem;
@@ -293,7 +314,7 @@ nav.scrolled .nav-dropdown-menu {
   gap: 0.7rem;
   padding: 0.8rem 2.2rem;
   border: 3px solid #0D2A5D;
-  border-radius: 20px;
+  border-radius: 50px;
   color: #0D2A5D;
   font-family: "Source Sans 3", sans-serif;
   font-size: 1.2rem;
@@ -311,7 +332,7 @@ nav.scrolled .nav-dropdown-menu {
 
 .btn-all-announcements i {
   font-size: 1rem;
-}
+}*
 
 /* ─── ABOUT ───────────────────────────────────────────── */
 #about {

@@ -2,15 +2,18 @@
 const avisos = [
     {
     fecha: 'Martes 3 de Febrero del 2026',
-    texto: 'Preinscripciones <strong>ABIERTAS</strong> para el Ciclo Escolar 2026 - 27'
+    texto: 'Preinscripciones <strong>ABIERTAS</strong> para el Ciclo Escolar 2026 - 27',
+    link: '#'
     },
     {
     fecha: 'Miércoles 13 de Mayo del 2026',
-    texto: 'Suspensión de clases por consejo técnico escolar el próximo <strong>Viernes 15 de Mayo</strong>'
+    texto: 'Suspensión de clases por consejo técnico escolar el próximo <strong>Viernes 15 de Mayo</strong>',
+    link: '#'
     },
     {
     fecha: 'Lunes 25 de Mayo del 2026',
-    texto: ' Simulacro Nacional el pŕoximo <strong> Viernes 29 de Mayo </strong>'
+    texto: ' Simulacro Nacional el pŕoximo <strong> Viernes 29 de Mayo </strong>',
+    link: '#'
     }
 ];
 
@@ -21,6 +24,9 @@ avisos.forEach(aviso => {
     <div class="announcement-card">
         <div class="card-date">${aviso.fecha}</div>
         <div class="card-text">${aviso.texto}</div>
+        <div class="card-link-container">
+            <a href="${aviso.link}" class="card-link">Leer más</a>
+        </div>
     </div>
     `;
 });
