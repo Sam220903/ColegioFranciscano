@@ -282,3 +282,39 @@ footer {
 .data-label#facebook-link a:visited{
   color: #fefefe;
 }
+
+
+#nav-buttons {
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#nav-buttons a {
+  width: 300px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 0.8rem 2.2rem;
+  border: 3px solid transparent;
+  border-radius: 50px;
+  background: #0D2A5D;
+  color: #ffffff;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.25s, color 0.25s;
+}
+#nav-buttons a:hover {
+    background: transparent;
+    color: #0D2A5D;
+    border: 3px solid #0D2A5D;
+}
+
+#nav-buttons a i{
+    font-size: 1.5rem;
+}

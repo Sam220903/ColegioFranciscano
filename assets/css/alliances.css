@@ -166,7 +166,6 @@ html, body {
 
 #community-impact {
   position: relative;
-  overflow: hidden;
   padding: 3rem 4rem;
   margin-bottom: 50px;
   display: flex;
@@ -182,4 +181,29 @@ html, body {
   font-size: 1.5rem;
   letter-spacing: 2px;
   margin-bottom: 3rem;
+}
+
+#community-impact .content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.achievement {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  padding: 1rem 2rem;
+}
+
+.achievement .main-data {
+  font-family: "Cal Sans", sans-serif;
+  color: #A09943;
+  font-size: 48px;
+}
+
+.achievement .achievement-info{
+  color: #0D2A5D;
+  font-size: 20px;
 }
