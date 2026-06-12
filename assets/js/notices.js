@@ -1,28 +1,36 @@
-const avisos = [
-    { img: 'assets/images/test1.jpg', fecha: 'Martes 3 de Febrero del 2026', texto: 'Preinscripciones <strong>ABIERTAS</strong> para el Ciclo Escolar 2026 - 27', link: '#' },
-    { img: 'assets/images/test2.jpg', fecha: 'Jueves 14 de Mayo del 2026', texto: 'Suspensión de actividades académicas mañana, <b> 15 de Mayo </b>', link: '#' },
-    { img: 'assets/images/test3.jpg', fecha: 'Martes 31 de Marzo del 2026', texto: '<strong> Recordatorio: </strong>Preinscripciones abiertas para el Ciclo Escolar 2026 - 27', link: '#' },
-    { img: 'assets/images/test4.jpg', fecha: 'Viernes 15 de Mayo del 2026', texto: '¡Feliz día del maestro a todos los docentes de nuestra comunidad educativa!', link: '#' },
-    { img: 'assets/images/test5.jpg', fecha: 'Lunes 4 de Mayo', texto: '<b>Invitación</b> a todas las madres de nuestra comunidad a misa por el día de las madres', link: '#' },
-];
+import API from "./api/index.js";
+import { formatDate } from "./lib/date_formatter.js";
+
+const notices = await API.notices.getAll();
+const mainNotice = await API.notices.getMain();
 
 const track   = document.getElementById('cards-track');
 const dotsEl  = document.getElementById('cards-dots');
 const VISIBLE = 3;
 let current   = 0;
-const total   = avisos.length;
+const total   = notices.length;
+
+// Renderizar contenido de aviso principal
+const mainNoticeTitle = document.getElementById('main-notice-title');
+mainNoticeTitle.innerHTML = mainNotice.title;
+
+const mainNoticeImg = document.getElementById('main-notice-img');
+mainNoticeImg.src = mainNotice.image_url;
+
+const mainNoticeLink = document.getElementById('main-notice-link');
+mainNoticeLink.href = `aviso.html?id=${mainNotice.id}`;
 
 /* ── Renderizar tarjetas ── */
-avisos.forEach(a => {
+notices.forEach(n => {
     track.innerHTML += `
     <div class="announcement-card">
         <div class="card-img">
-            <img src="${a.img}" alt="">
+            <img src="${n.image_url}" alt="">
         </div>
         <div class="card-body">
-            <p class="card-date">${a.fecha}</p>
-            <p class="card-text">${a.texto}</p>
-            <a href="${a.link}" class="card-link">Leer más</a>
+            <p class="card-date">${formatDate(n.publish_date)}</p>
+            <p class="card-text">${n.title}</p>
+            <a href="aviso.html?id=${n.id}" class="card-link">Leer más</a>
         </div>
     </div>`;
 });

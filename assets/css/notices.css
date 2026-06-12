@@ -49,7 +49,7 @@ html, body {
     letter-spacing: 2px;
 }
 
-#banner-info button {
+#banner-info a {
     border: 3px solid transparent;
     background-color: #A09943;
     color: #F1EDEC;
@@ -66,11 +66,16 @@ html, body {
     transition: 0.3s all;
 }
 
-#banner-info button i{
+#banner-info a:visited, #banner-info a:active {
+  text-decoration: none;
+  color: #F1EDEC;
+}
+
+#banner-info a i{
     font-size: 1.5rem;
 }
 
-#banner-info button:hover{
+#banner-info a:hover{
     border-color: #A09943;
     color: #A09943;
     background-color: #0D2A5D;
